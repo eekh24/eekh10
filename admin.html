@@ -845,7 +845,7 @@
             const totalAmount = orderData.totalAmount;
             console.log(totalAmount);
 
-            const referralAmount = totalAmount * 0.025;
+            const referralAmount = totalAmount * 0.05;
 
             // Get the user document to fetch the referral phone number
             const userDocRef = doc(db, 'users', orderData.userMobileNumber);
