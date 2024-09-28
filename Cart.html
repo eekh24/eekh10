@@ -598,7 +598,7 @@
                     if (walletSnap.exists()) { // Check if the document exists
                         const walletData = walletSnap.data(); // Access the data using .data()
 
-                        let totalAmountOneFourth = removeTotalAmount / 4 * 3;
+                        let totalAmountOneFourth = removeTotalAmount / 4;
                         let walletAmount = walletData.referralAmount || 0;
 
                         if (walletAmount > totalAmountOneFourth) {
@@ -677,10 +677,10 @@
                             const walletHistory = userData.walletHistory || [];
                             walletHistory.push({
                                 type: 'Deduction',
-                                amount: totalAmount,
+                                amount: removeTotalAmount - totalAmount,
                                 date: new Date(),
                                 reason: 'WALLETOFF25%',
-                                previousBalance: currentReferralAmount + totalAmount
+                                previousBalance: currentReferralAmount + removeTotalAmount - totalAmount
                             });
 
                             // Update the referralAmount and walletHistory in Firestore
